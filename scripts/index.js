@@ -1,13 +1,13 @@
-const popups = Array.from(document.querySelectorAll('.popup'));
-const popupEdit = document.querySelector('.popup_edit-profile');
-const popupOpenButton = document.querySelector('.profile__edit-button');
-const popupCloseEditButton = document.querySelector('.popup__close-edit');
-const name = document.querySelector('.profile__name');
-const job = document.querySelector('.profile__activity');
-const formElementEdit = document.querySelector('.popup__form-edit');
-const nameInput = document.querySelector('.popup__input_type_name');
-const jobInput = document.querySelector('.popup__input_type_job');
-const buttons = Array.from(document.querySelectorAll('.popup__save'));
+let popups = Array.from(document.querySelectorAll('.popup'));
+let popupEdit = document.querySelector('.popup_edit-profile');
+let popupOpenButton = document.querySelector('.profile__edit-button');
+let popupCloseEditButton = document.querySelector('.popup__close-edit');
+let name = document.querySelector('.profile__name');
+let job = document.querySelector('.profile__activity');
+let formElementEdit = document.querySelector('.popup__form-edit');
+let nameInput = document.querySelector('.popup__input_type_name');
+let jobInput = document.querySelector('.popup__input_type_job');
+let buttons = Array.from(document.querySelectorAll('.popup__save'));
 
 
 const closePopup = function() {
@@ -15,7 +15,6 @@ const closePopup = function() {
     popupToggle(focusPopup);
     removeCloseOnEsc(); 
     buttons.forEach((button) => {
-        button.classList.remove(validationConfig.inactiveButtonClass);
         button.removeAttribute('disabled', true);
     });
 };
