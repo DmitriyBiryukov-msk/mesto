@@ -135,7 +135,7 @@ const drawList = (list) => {
 const loadList = () => {
     var xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
-    xobj.open('GET', '/scripts/cards.json', true);
+    xobj.open('GET', './cards.json', true);
     xobj.onreadystatechange = function () {
         if (xobj.readyState == 4 && xobj.status == "200") {
 
