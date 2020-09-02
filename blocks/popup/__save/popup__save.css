@@ -1,3 +1,4 @@
+.popup__create_save,
 .popup__save {
     width: 100%;
     font-size: 18px;
@@ -12,6 +13,7 @@
     cursor: pointer;
 }
 
+.popup__create_save:hover,
 .popup__save:hover {
     background-color: rgba(0, 0, 0, .8);
 }

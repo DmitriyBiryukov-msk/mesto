@@ -6,6 +6,10 @@
 @import url(./__input/popup__input.css);
 @import url(./__input/_type/popup__input_type_job.css);
 @import url(./__input/_type/popup__input_type_name.css);
+@import url(./__description/popup__description.css);
+@import url(./__picture/popup__picture.css);
+@import url(./__preview/popup__preview.css);
+@import url(./__preview/_container/popup__previe-container.css);
 
 
 .popup {
