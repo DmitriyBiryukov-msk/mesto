@@ -15,6 +15,33 @@ let submitSaveButton = document.querySelector('.popup__create_save');
 let cardsEl = document.querySelector('.cards');
 let closePopupPrev = document.querySelector('.popup__close-preview');
 
+const cities = [
+    {
+        "name": "Эльбрус",
+        "link": "./images/Эльбрус.jpg"
+    },
+    {
+        "name": "Нью-Йорк",
+        "link": "./images/Нью-Йорк.jpg"
+    },
+    {
+        "name": "Карачаевск",
+        "link": "./images/Карачаевск.jpg"
+    },
+    {
+        "name": "Домбай",
+        "link": "./images/Домбай.jpg"
+    },
+    {
+        "name": "Санкт-Петербург",
+        "link": "./images/Санкт-Петербург.jpg"
+    },
+    {
+        "name": "Москва",
+        "link": "./images/Москва.jpg"
+    }
+];
+
 
 const closePopup = function() {
     const focusPopup = document.querySelector('.popup_opened');
@@ -51,7 +78,12 @@ const openPopupEditProfile = function() {
     document.addEventListener('keydown', escapePressedHandler);
     if (popupEdit.classList.contains('popup_opened')) {
         nameInput.value = name.textContent;
+        // Чтобы обработчик формы увидел изменения сделанные через js нужно диспатчнуть событие изменения вручную
+        nameInput.dispatchEvent(new Event('input', { bubbles: true }));
+
         jobInput.value = job.textContent;
+        // Чтобы обработчик формы увидел изменения сделанные через js нужно диспатчнуть событие изменения вручную
+        jobInput.dispatchEvent(new Event('input', { bubbles: true }))
     } else {
         return;
     }
@@ -122,28 +154,14 @@ const addCard = (event) => {
     cardsEl.prepend(el.firstChild);
 }
 
-const drawList = (list) => {
-    for(card of list) {
+const drawList = () => {
+    for(card of cities) {
         const el = document.createElement('div');
         const domString = cardEl(card.name, card.link);
         el.innerHTML = domString;
         cardsEl.prepend(el.firstChild);
     }
 };
-
-// загрузка массива 
-const loadList = () => {
-    var xobj = new XMLHttpRequest();
-    xobj.overrideMimeType("application/json");
-    xobj.open('GET', '/mesto/scripts/cards.json', true);
-    xobj.onreadystatechange = function () {
-        if (xobj.readyState == 4 && xobj.status == "200") {
-
-            drawList(JSON.parse(xobj.responseText).list);
-        }
-    };
-    xobj.send(null);
-}
 
 // закрытие попапа по оверлей
 popups.forEach(function(element) {
@@ -160,9 +178,6 @@ popups.forEach(function(element) {
     });
 });
 
-
-
-
 closeCreateButton.addEventListener('click', closePopup);
 closePopupPrev.addEventListener('click', closePopup);
 buttonCreate.addEventListener('click', openCreatePopup);
@@ -170,14 +185,5 @@ formElementEdit.addEventListener('submit', formSubmitHandlerProfile);
 popupOpenButton.addEventListener('click', openPopupEditProfile);
 submitSaveButton.addEventListener('click', addCard);
 popupCloseEditButton.addEventListener('click', closePopup);
-document.addEventListener("DOMContentLoaded", loadList);
-
-
-
-
-
-
-
-
-
+document.addEventListener("DOMContentLoaded", drawList);
 

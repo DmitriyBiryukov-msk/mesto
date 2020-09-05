@@ -5,3 +5,12 @@
     margin-top: 40px;
     margin-bottom: 36px;
 }
+
+.form__button_inactive {
+    background: #ccc;
+    cursor: initial;
+}
+
+.form__button_inactive:hover {
+	background: #ccc;
+}

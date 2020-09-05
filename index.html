@@ -38,7 +38,7 @@
                     <span class="popup__input-error" id="name-input-error"></span>
                     <input name="job" type="text" placeholder="Ваша работа" class="popup__input popup__input_type_job" id="job-input" minlength="2" maxlength="200" required>
                     <span class="popup__input-error" id="job-input-error"></span>
-                    <button type="submit" class="popup__save">Сохранить</button>
+                    <button type="submit" class="popup__button popup__save">Сохранить</button>
                 </form>
             </div>
         </section>
@@ -48,10 +48,10 @@
                 <h3 class="popup__edit-title">Новое место</h3>
                 <form name="add-place" method="POST" action="/" class="popup__form popup__form-add" novalidate>
                     <input name="place" type="text" placeholder="Название" class="popup__input popup__input_type_place" id="place-input" minlength="1" maxlength="30" required>
-                    <span class="popup__input-error" id="place-input-error"></span>
+                    <span class="popup__input_error_inactive" id="place-input-error"></span>
                     <input name="link" type="url" placeholder="Ссылка на картинку" class="popup__input popup__input_type_link" id="link-input" required>
-                    <span class="popup__input-error" id="link-input-error"></span>
-                    <button type="submit" class="popup__create_save">Сохранить</button>
+                    <span class="popup__input_error_inactive" id="link-input-error">.</span>
+                    <button type="submit" class="popup__button popup__create_save">Сохранить</button>
                 </form>
             </div>
         </section>
@@ -62,7 +62,6 @@
                 <button type="button" class="popup__close popup__close-preview"></button>
             </div>
         </section>
-    <script src='./scripts/cards.json'></script>
     <script src='./scripts/index.js'></script>
 </body>
 </html>
